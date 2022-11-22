@@ -1,0 +1,341 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Open Sans, Ubuntu, Fira Sans, Helvetica Neue, sans-serif;
+  margin: 0;
+  background-color: #4e54c8;
+}
+
+/*
+=====
+DEPENDENCES
+=====
+*/
+
+.r-link {
+  display: var(--rLinkDisplay, inline-flex) !important;
+}
+
+.r-link[href] {
+  color: var(--rLinkColor) !important;
+  text-decoration: var(--rLinkTextDecoration, none) !important;
+}
+
+.r-list {
+  padding-left: var(--rListPaddingLeft, 0) !important;
+  margin-top: var(--rListMarginTop, 0) !important;
+  margin-bottom: var(--rListMarginBottom, 0) !important;
+  list-style: var(--rListListStyle, none) !important;
+}
+
+
+/*
+  =====
+  CORE STYLES
+  =====
+  */
+
+.menu {
+  --rLinkColor: var(--menuLinkColor, currentColor);
+}
+
+.menu__link {
+  display: var(--menuLinkDisplay, block);
+}
+
+/* 
+  focus state 
+  */
+
+.menu__link:focus {
+  outline: var(--menuLinkOutlineWidth, 2px) solid var(--menuLinkOutlineColor, currentColor);
+  outline-offset: var(--menuLinkOutlineOffset);
+}
+
+/* 
+  fading siblings
+  */
+
+.menu:hover .menu__link:not(:hover) {
+  --rLinkColor: var(--menuLinkColorUnactive, rgba(22, 22, 22, .35));
+}
+
+/*
+  =====
+  PRESENTATION STYLES
+  =====
+  */
+
+.menu {
+  background-color: var(--menuBackgroundColor, #f0f0f0);
+  box-shadow: var(--menuBoxShadow, 0 1px 3px 0 rgba(0, 0, 0, .12), 0 1px 2px 0 rgba(0, 0, 0, .24));
+}
+
+.menu__list {
+  display: flex;
+}
+
+.menu__link {
+  padding: var(--menuLinkPadding, 1.5rem 2.5rem);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* 
+  =====
+  TEXT UNDERLINED
+  =====
+  */
+
+.text-underlined {
+  position: relative;
+  overflow: hidden;
+
+  will-change: color;
+  transition: color .25s ease-out;
+}
+
+.text-underlined::before,
+.text-underlined::after {
+  content: "";
+  width: 0;
+  height: 3px;
+  background-color: var(--textUnderlinedLineColor, currentColor);
+
+  will-change: width;
+  transition: width .1s ease-out;
+
+  position: absolute;
+  bottom: 0;
+}
+
+.text-underlined::before {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.text-underlined::after {
+  right: 50%;
+  transform: translateX(50%);
+}
+
+.text-underlined:hover::before,
+.text-underlined:hover::after {
+  width: 100%;
+  transition-duration: .2s;
+}
+
+/*
+  =====
+  SETTINGS
+  =====
+  */
+
+.page__custom-settings {
+  --menuBackgroundColor: #6c5ce7;
+  --menuLinkColor: #fff;
+  --menuLinkColorUnactive: #241c69;
+  --menuLinkOutlineOffset: -.5rem;
+}
+
+/*
+  =====
+  DEMO
+  =====
+  */
+
+.page__menu:nth-child(n+2) {
+  margin-top: 3rem;
+}
+
+
+.substack {
+  border: 1px solid #EEE;
+  background-color: #fff;
+  width: 100%;
+  max-width: 480px;
+  height: 280px;
+  margin: 1rem auto;
+  ;
+}
+
+
+.r-link {
+  --uirLinkDisplay: var(--rLinkDisplay, inline-flex);
+  --uirLinkTextColor: var(--rLinkTextColor);
+  --uirLinkTextDecoration: var(--rLinkTextDecoration, none);
+
+  display: var(--uirLinkDisplay) !important;
+  color: var(--uirLinkTextColor) !important;
+  text-decoration: var(--uirLinkTextDecoration) !important;
+}
+
+
+/*passport area*/
+
+h1 {
+  margin-top: 85px;
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.7);
+}
+
+h2 {
+  margin-top: 80px;
+  text-align: center;
+  font-style: italic;
+  color: #ffffff;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.7);
+}
+
+/*background*/
+#passport-background {
+  background: url('../img/passport.jpg') center;
+  background-size: cover;
+  height: 800px;
+  border: solid;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+#content {
+  position: relative;
+}
+
+#passport-background::before {
+  content: '';
+  display: block;
+  position: absolute;
+  background-color: #000;
+  opacity: 0.4;
+  width: 100%;
+  height: 100%;
+}
+
+/* button 'afficher les rendez-vous'*/
+
+#appointment-btn {
+  color: var(--color);
+  transition: 0.25s;
+  background: none;
+  border: 3px solid;
+  border-radius: 45px;
+  font: inherit;
+  text-shadow: 2px 2px #000;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 1em 2em;
+}
+
+#appointment-btn:hover,
+button:focus {
+  border-color: var(--hover);
+  color: #4e54c8;
+  border: 3px solid #4e54c8;
+  text-shadow: 1px 1px #000;
+}
+
+.raise:hover,
+.raise:focus {
+  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+  transform: translateY(-0.05em);
+}
+
+.raise {
+  --color: #ffffff;
+  --hover: #0000008d;
+}
+
+/* list of appointments*/
+.container {
+  max-width: 1085px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 85%;
+}
+
+.responsive-table li {
+  border-radius: 10px;
+  padding: 25px 30px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+  margin-right: 40px;
+}
+
+.responsive-table .table-header {
+  background-color: #000000;
+  color: white;
+  border: 2px solid rgba(0, 0, 0, 0.3);
+  text-shadow: 1px 1px #000;
+  box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.44);
+}
+
+.responsive-table .table-row {
+  background-color: #ffffff;
+  box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.44);
+}
+
+.responsive-table .col-1 {
+  justify-content: center;
+  flex-basis: 45%;
+}
+
+.responsive-table .col-2 {
+  text-align: center;
+  flex-basis: 20%;
+}
+
+.responsive-table .col-3 {
+  justify-content: center;
+  flex-basis: 10%;
+}
+
+.responsive-table .col-4 {
+  text-align: center;
+  flex-basis: 25%;
+}
+
+@media (max-width: 767px) {
+  .responsive-table .table-header {
+    display: none;
+  }
+
+  .responsive-table li {
+    display: block;
+  }
+
+  .responsive-table .col {
+    display: flex;
+    justify-content: center;
+    flex-basis: 100%;
+    padding: 5px 0;
+  }
+}
+
+
+
+.btn-appt {
+  width: 40px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background-color: #232423;
+  padding: 0.3em 1.2em;
+  border-radius: 30px;
+  font-weight: 550;
+  color: #ffffff;
+  background-size: 100% 100%;
+  text-align: center;
+  text-decoration: none;
+  border: 2px solid black;
+}
+
+.btn-appt:hover {
+  background: transparent;
+  color: #000;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
